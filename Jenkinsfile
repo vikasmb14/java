@@ -1,8 +1,10 @@
 pipeline{
-agent any
-tools{
-  maven 'maven'
+  agent any
+
+  tools{
+         maven 'maven'
 }
+
 stages{
    stage('git-checkout'){
 	steps{
@@ -14,12 +16,12 @@ stages{
           sh "mvn compile"
              }
    }
-   stage('packaging'){
+   stage('build'){
         steps{
-          sh"mvn package"
+          sh "mvn package"
             }
+      }
   }
-}
 }
 
 
